@@ -1,0 +1,60 @@
+/* Shared opaque information colors are supplied by appearance.tsx, not per view. */
+:root { --now-line: #b75050; --now-text: #a94040; }
+:root[data-theme="bright"] {
+  --canvas: #ffffff; --paper: #ffffff; --sidebar-bg: #f7f9fc; --context-bg: #fafbfc; --surface: #f7f9fc;
+  --ink: #182230; --muted: #667085; --faint: #768398; --line: #e5eaf0; --line-strong: #cbd5e1;
+  --accent: #2f6bff; --accent-strong: #2454cc; --accent-soft: #eef4ff; --focus-ring: #2f6bff;
+  --warning: #946400; --danger: #b42329; --feedback-bg: #eef4ff; --now-line: #e5484d; --now-text: #b42329;
+}
+:root[data-theme="bright"] .context-tray, :root[data-theme="bright"] .context-panel { background: var(--context-bg); }
+:root[data-theme="bright"] .tray-toggle { background: var(--context-bg); }
+:root[data-theme="bright"] .timeline-day.today, :root[data-theme="bright"] .deadline-grid, :root[data-theme="bright"] .overnight-grid { background-color: #ffffff; }
+:root[data-theme="bright"] .day-heading.today { background: #eef4ff; }
+:root[data-theme="bright"] .day-heading.today .day-title-row strong { background: var(--accent); }
+.current-time-line { border-color: var(--now-line); color: var(--now-text); }
+.current-time-line::before { background: var(--now-line); }
+.current-time-line span { border-color: var(--now-line); }
+.calendar-event[data-color], .overnight-event[data-color], .deadline-chip[data-color] { background: var(--item-bg); border-color: var(--item-accent); border-left-width: 5px; color: var(--item-text); opacity: 1; }
+.calendar-event[data-color] strong, .calendar-event[data-color] span, .calendar-event[data-color] .event-time, .deadline-chip[data-color] strong { color: var(--item-text); opacity: 1; }
+.calendar-event .event-relationship { font-size: 9px; line-height: 1.4; }
+.calendar-event[data-color].recovery-event { background-image: repeating-linear-gradient(135deg, var(--item-bg) 0, var(--item-bg) 8px, #ffffff 8px, #ffffff 14px); }
+.item-completed, .priority-row.completed, .priority-row.completed .priority-copy { opacity: 1; }
+.item-completed strong, .priority-row.completed strong { text-decoration: line-through; }
+.calendar-event.original-event { opacity: 1; background: #f1f4f8; border: 1px dashed #697586; color: #475467; }
+.planner-row[data-color], .priority-row[data-color] { background: var(--item-bg); color: var(--item-text); border-color: var(--item-accent); border-left-width: 5px; border-radius: 6px; padding: 9px; }
+.planner-row[data-color] strong, .planner-row[data-color] small, .priority-row[data-color] strong, .priority-row[data-color] small { color: var(--item-text); }
+.priority-copy small, .deadline-copy small { white-space: normal; line-height: 1.4; }
+.confirmation-card[data-color] { background: var(--item-bg); border-color: var(--item-accent); }
+.confirmation-card[data-color] h3, .confirmation-card[data-color] p, .confirmation-card[data-color] dt { color: var(--item-text); }
+.solid-tag, .replan-tag { display: inline-block; border: 1px solid var(--item-accent, var(--line-strong)); border-radius: 4px; padding: 3px 5px; background: var(--item-bg, var(--accent-soft)); color: var(--item-text, var(--accent-strong)); font-size: 9px; font-weight: 600; line-height: 1.3; opacity: 1; }
+.solid-tag.priority-critical { background: #fbe3e3; color: #792e2e; border-color: #d45353; }
+.solid-tag.priority-high { background: #fff4c7; color: #694d08; border-color: #c79622; }
+.relationship-path { color: var(--muted); font-size: 10px; line-height: 1.5; margin: 0; }
+.calendar-event .event-conflict { background: #fff4c7; color: #694d08; border: 1px solid #c79622; }
+.context-tray .capacity-warning, .context-tray .over-capacity > strong { color: var(--danger); }
+.project-hierarchy { display: flex; flex-direction: column; gap: 22px; }
+.hierarchy-area { min-width: 0; }
+.area-heading, .course-heading, .work-type-heading { display: flex; align-items: center; gap: 9px; width: 100%; text-align: left; cursor: pointer; }
+.area-heading { background: var(--item-text); color: #ffffff; border: 1px solid var(--item-text); padding: 12px 15px; border-radius: 9px; font-size: 14px; }
+.area-heading small, .course-heading small, .work-type-heading small { margin-left: auto; font-size: 10px; }
+.area-projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 14px; padding: 14px 0 0 15px; }
+.hierarchy-project { border: 1px solid var(--item-accent); border-radius: 9px; overflow: hidden; background: var(--paper); scroll-margin-top: 12px; }
+.course-heading { min-height: 58px; padding: 12px; border: 0; border-left: 10px solid var(--item-accent); background: var(--item-bg); color: var(--item-text); font-size: 13px; }
+.course-content { padding: 12px; }
+.course-content .project-actions { margin-bottom: 12px; }
+.work-type { margin-top: 6px; scroll-margin-top: 12px; }
+.work-type-heading { padding: 8px; border: 1px solid var(--item-bg); border-radius: 5px; background: var(--item-bg); color: var(--item-text); font-size: 11px; }
+.work-type-content { padding: 4px 0 6px 12px; }
+.work-type-content .section-note { margin: 7px 0; font-size: 10px; }
+.work-type-content .planner-row { margin-top: 6px; }
+.work-type-content .planner-row small { display: block; white-space: normal; line-height: 1.5; }
+.work-type-content .planner-row .solid-tag { margin-top: 5px; }
+.compact-hierarchy { gap: 14px; }
+.compact-hierarchy .area-heading { padding: 9px 8px; font-size: 12px; gap: 6px; }
+.compact-hierarchy .area-projects { display: flex; flex-direction: column; gap: 7px; padding: 8px 0 0 8px; }
+.compact-hierarchy .hierarchy-project { width: 100%; }
+.compact-hierarchy .course-heading { min-height: 40px; padding: 8px 6px; font-size: 11px; gap: 5px; border-left-width: 8px; }
+.compact-hierarchy .course-content { padding: 5px; }
+.compact-hierarchy .work-type-heading { font-size: 10px; gap: 4px; padding: 6px 3px; }
+.compact-hierarchy .work-type-link { display: block; padding: 6px 5px 6px 19px; background: var(--paper); border: 0; color: var(--muted); font-size: 9px; cursor: pointer; text-align: left; }
+.compact-hierarchy .work-type-link:hover { color: var(--accent-strong); text-decoration: underline; }
